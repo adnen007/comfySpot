@@ -1,8 +1,8 @@
-import { useMainContext } from "../context/context";
+import { useMainContext } from "../contexts/mainContext";
 import { Link } from "react-router-dom";
 const Landing = () => {
   const {
-    stateA: {
+    staticData: {
       landing: { images, title, text },
     },
   } = useMainContext();
@@ -13,13 +13,13 @@ const Landing = () => {
           <div className="content">
             <h2>{title}</h2>
             <p>
-              {text.split(" ").map((e) => {
-                return <span>{` ${e}`}</span>;
+              {text.split(" ").map((e, i) => {
+                return <span key={i}>{` ${e}`}</span>;
               })}
             </p>
 
             <Link to="/Products">SHOP NOW</Link>
-            <a href="#featuredProducts" class="indicator">
+            <a href="#featuredProducts" className="indicator">
               <span></span>
               <span></span>
               <span></span>

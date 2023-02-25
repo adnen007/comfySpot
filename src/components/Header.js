@@ -4,13 +4,11 @@ import { FaBars } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useMainContext } from "../context/context";
+import { useCartContext } from "../contexts/cart";
+import { links } from "../util/constant";
 const Header = () => {
-  const {
-    stateB: { cart },
-  } = useMainContext();
-  const [bars, setbars] = useState(false); // you can add state without caring about the mangement
-  // if the state don't have any relation with the data but it just for simple effect like button
+  const { cartState } = useCartContext();
+  const [bars, setbars] = useState(false);
   return (
     <header>
       <div className="container">
@@ -24,20 +22,19 @@ const Header = () => {
         </div>
         <div className={`menu ${bars ? "active " : ""}`}>
           <ul>
-            <li onClick={() => setbars(!bars)}>
-              <Link to="/"> Home</Link>
-            </li>
-            <li onClick={() => setbars(!bars)}>
-              <Link to="/About"> About </Link>
-            </li>
-            <li onClick={() => setbars(!bars)}>
-              <Link to="/Products"> Products</Link>
-            </li>
+            {links.map((link) => {
+              const { id, text, url } = link;
+              return (
+                <li key={id} onClick={() => setbars(!bars)}>
+                  <Link to={url}> {text}</Link>
+                </li>
+              );
+            })}
           </ul>
           <div className="c_l">
             <Link onClick={() => setbars(!bars)} to="./Cart" className="cart">
               Cart <BsFillCartFill />
-              <span>{cart.length}</span>
+              <span>{cartState.length}</span>
             </Link>
             <Link to="*" className="login">
               Login

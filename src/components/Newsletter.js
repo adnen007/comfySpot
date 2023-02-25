@@ -1,8 +1,8 @@
-import { useMainContext } from "../context/context";
+import { useMainContext } from "../contexts/mainContext";
 
 const Newsletter = () => {
   const {
-    stateA: {
+    staticData: {
       newsPaper: { text, title },
     },
   } = useMainContext();

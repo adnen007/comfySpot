@@ -8,7 +8,7 @@ const DetailedProduct = ({ item: { name, price, images, description, id } }) => 
       <div className="info">
         <h2>{name}</h2>
         <div className="price">{`$${price / 100}`}</div>
-        <div className="description">{description} </div>
+        <div className="description">{description.substring(0, 150)}... </div>
 
         <Link className="details" to={`Item/${id}`}>
           DETAILS

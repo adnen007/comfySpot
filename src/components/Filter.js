@@ -1,14 +1,15 @@
-import { useMainContext } from "../context/context";
+//import { useMainContext } from "../contexts/mainContext";
+import { useFilterContext } from "../contexts/filterContext";
 import { useState } from "react";
 import { GoCheck } from "react-icons/go";
 
 const Filter = () => {
   const {
-    stateB: {
-      filter: { price },
+    filteredProducts: {
+      filters: { price, maxPrice },
     },
-    dispatchB,
-  } = useMainContext();
+    dispatchFilter,
+  } = useFilterContext();
 
   const [text, setText] = useState("");
   const [company, setCompany] = useState("all");
@@ -21,21 +22,21 @@ const Filter = () => {
 
   const onCompanyChange = (value) => {
     setCompany(value);
-    dispatchB({ type: "COMPANY", playload: value });
+    dispatchFilter({ type: "COMPANY", playload: value });
   };
 
   const onColorClick = (e, i) => {
-    dispatchB({ type: "COLORS", playload: e });
+    dispatchFilter({ type: "COLORS", playload: e });
     setCheckedColor(i);
   };
 
   const onCategoryClick = (e, i) => {
-    dispatchB({ type: "CATEGORY", playload: e });
+    dispatchFilter({ type: "CATEGORY", playload: e });
     setCheckedCategory(i);
   };
 
   const onClearClick = () => {
-    dispatchB({ type: "CLEAR" });
+    dispatchFilter({ type: "CLEAR" });
     setCheckedColor("");
     setCheckedCategory("");
     setCompany("all");
@@ -49,7 +50,7 @@ const Filter = () => {
         value={text}
         onChange={(event) => {
           setText(event.currentTarget.value);
-          dispatchB({ type: "FILTER_SEARCH", playload: event.currentTarget.value });
+          dispatchFilter({ type: "FILTER_SEARCH", playload: event.currentTarget.value });
         }}
       />
       <div className="category">
@@ -92,11 +93,11 @@ const Filter = () => {
       <div className="price">
         <h3>Price</h3>
         <p>${(price / 100).toFixed(2)}</p>
-        <input type="range" value={price} min="10000" step="10" max="1000000" onChange={(event) => dispatchB({ type: "PRICE", playload: event.currentTarget.value })} />
+        <input type="range" value={price} min="0" step="1" max={maxPrice} onChange={(event) => dispatchFilter({ type: "PRICE", playload: event.currentTarget.value })} />
       </div>
       <div className="free-shipping">
         <div>Free Shipping</div>
-        <input type="checkbox" onClick={(event) => dispatchB({ type: "SHIPPING", playload: event.target.checked })} />
+        <input type="checkbox" onClick={(event) => dispatchFilter({ type: "SHIPPING", playload: event.target.checked })} />
       </div>
       <div className="clear" onClick={onClearClick}>
         Clear Filter

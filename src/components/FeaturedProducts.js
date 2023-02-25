@@ -1,10 +1,10 @@
-import { useMainContext } from "../context/context";
+import { useMainContext } from "../contexts/mainContext";
 import Product from "../components/Product";
 import { Link } from "react-router-dom";
 
 const FeaturedProducts = () => {
   const {
-    stateA: { featuredProducts },
+    staticData: { featuredProducts },
   } = useMainContext();
   return (
     <div id="featuredProducts" className="featured-products">

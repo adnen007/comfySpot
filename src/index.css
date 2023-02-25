@@ -195,6 +195,7 @@ header .menu li {
   font-weight: 300;
   padding-left: 10px;
   position: relative;
+  text-transform: capitalize;
 }
 header .menu li::after {
   content: "";
@@ -533,8 +534,7 @@ header .menu > .c_l > .login {
   padding: 60px 0;
   background: var(--forthColor);
 }
-.features .container {
-}
+
 .features .intro {
   margin-top: 19px;
   display: flex;
@@ -711,10 +711,7 @@ footer p span {
   color: black;
 }
 /* about */
-.about {
-}
-.about .container {
-}
+
 .about .content {
   display: grid;
   gap: 50px;
@@ -777,10 +774,7 @@ footer p span {
 }
 
 /* products */
-.products {
-}
-.products .container {
-}
+
 .products .content {
   display: grid;
   margin-top: 60px;
@@ -1071,8 +1065,7 @@ footer p span {
 }
 
 /* item */
-.item {
-}
+
 .item .container {
   padding-top: 65px;
   padding-bottom: 65px;
@@ -1088,8 +1081,7 @@ footer p span {
   font-size: 14px;
   letter-spacing: 1.1px;
 }
-.item {
-}
+
 .item .content {
   margin-top: 35px;
   display: grid;
@@ -1132,6 +1124,7 @@ footer p span {
 .item .images .list-images {
   margin-top: 12px;
   display: flex;
+  align-items: flex-start;
   gap: 12px;
 }
 .item .images .list-images .image {
@@ -1140,6 +1133,9 @@ footer p span {
   width: calc((100% - (12px * 4)) / 5);
   cursor: pointer;
   border: 1px solid black;
+}
+.item .images .list-images .image.active {
+  border: 3px solid blue;
 }
 
 .item .list-images .image img {
@@ -1273,14 +1269,11 @@ footer p span {
 
 /* cart */
 
-.cart {
-}
 .cart .container {
   padding-top: 60px;
   padding-bottom: 60px;
 }
-.cart .list {
-}
+
 .cart .list .top {
   display: none;
   border-bottom: 1px solid #bbbbd4;
@@ -1383,8 +1376,6 @@ footer p span {
   gap: 5px;
 }
 
-.cart .cart-item .content .info .color > p {
-}
 .cart .cart-item .content .info .color > span {
   display: block;
   width: 9px;

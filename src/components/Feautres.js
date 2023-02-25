@@ -1,5 +1,5 @@
 import Feature from "./Feature";
-import { useMainContext } from "../context/context";
+import { useMainContext } from "../contexts/mainContext";
 import { SiAzuredataexplorer } from "react-icons/si";
 import { AiOutlineAntDesign } from "react-icons/ai";
 import { MdHistoryEdu } from "react-icons/md";
@@ -8,7 +8,7 @@ const icons = { SiAzuredataexplorer: <SiAzuredataexplorer />, AiOutlineAntDesign
 
 const Features = () => {
   const {
-    stateA: { features },
+    staticData: { features },
   } = useMainContext();
   return (
     <div className="features">
