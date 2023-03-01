@@ -457,6 +457,7 @@ header .menu > .c_l > .login {
 
 .landing .images {
   display: none;
+
   position: relative;
 }
 .landing .images::after {
@@ -480,15 +481,35 @@ header .menu > .c_l > .login {
   display: block;
   border-radius: 5px;
 }
-.landing .images img:first-of-type {
+/* .landing .images img:first-of-type {
   margin-top: 30px;
   max-width: 400px;
   position: relative;
   z-index: 1;
+} */
+
+.landing .images .image-0 {
+  margin-top: 30px;
+  width: 400px;
+  height: 500px;
+  position: relative;
+  z-index: 1;
+  background-color: #bbeae0fa;
 }
-.landing .images img:nth-of-type(2) {
+
+/* .landing .images img:nth-of-type(2) {
   position: absolute;
   width: 250px;
+  bottom: 0px;
+  left: -90px;
+  z-index: 2;
+} */
+
+.landing .images .image-1 {
+  position: absolute;
+  background-color: #fecdad;
+  width: 250px;
+  height: 167.25px;
   bottom: 0px;
   left: -90px;
   z-index: 2;
@@ -1541,6 +1562,21 @@ footer p span {
   border-radius: 5px;
 }
 
+/* imageLoading */
+.image-loading {
+}
+.image-loading .circle {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  border: crimson solid 5px;
+  border-radius: 50%;
+  z-index: 23;
+  border-left: transparent solid 5px;
+  transform: rotate(0deg);
+  animation: loading 1s;
+}
+
 @keyframes scale {
   100% {
     transform: scale(1);
@@ -1564,5 +1600,10 @@ footer p span {
   25.1%,
   100% {
     border-color: black;
+  }
+}
+@keyframes loading {
+  100% {
+    transform: rotate(360deg);
   }
 }

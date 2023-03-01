@@ -1,11 +1,13 @@
 import { useMainContext } from "../contexts/mainContext";
 import { Link } from "react-router-dom";
+
 const Landing = () => {
   const {
     staticData: {
       landing: { images, title, text },
     },
   } = useMainContext();
+
   return (
     <div className="landing">
       <div className="container">
@@ -26,9 +28,13 @@ const Landing = () => {
               <span></span>
             </a>
           </div>
-          <div className="images">
-            <img src={images[0]} alt="" />
-            <img src={images[1]} alt="" />
+          <div className={`images `}>
+            <div className="image-0">
+              <img src={images[0]} alt="" />
+            </div>
+            <div className="image-1">
+              <img src={images[1]} alt="" />
+            </div>
           </div>
         </div>
       </div>

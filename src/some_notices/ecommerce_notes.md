@@ -29,6 +29,8 @@
 - we use useReducer like the useSate to create our state so the place where you will apply the same rules that talk about where you should inisialise the state on where you should inisialise the
   useReducer.
 
+- instead of always return in the reducer if there wasn't any condition meet the action you should throw an error and that to avoid hard errors in the future.
+
 - context api allow you to create special component that can share the value in its value prop with all its children and nested children and you can get the value easily inside the children by
   useContext .
 

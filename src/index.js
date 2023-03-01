@@ -8,6 +8,7 @@ import { MainContext } from "./contexts/mainContext";
 import { FilterContext } from "./contexts/filterContext";
 import { CartContext } from "./contexts/cart";
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <BrowserRouter>
     <MainContext>
